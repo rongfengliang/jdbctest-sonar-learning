@@ -21,9 +21,12 @@ public class Api {
 //        System.out.println(streamB.findFirst().get().toString());
 //        return "ok";
 
-        System.out.println( jdbcTemplate.queryForStream(
-                "select * from sys.sys_config", new BeanPropertyRowMapper<>(Conf.class)).findFirst().toString());
-        return "ok";
+//        System.out.println( jdbcTemplate.queryForStream(
+//                "select * from sys.sys_config", new BeanPropertyRowMapper<>(Conf.class)).findFirst().toString());
+//        return "ok";
+        Stream<Conf> streamB = jdbcTemplate.queryForStream(
+                "select * from sys.sys_config", new BeanPropertyRowMapper<>(Conf.class))
+        System.out.println(streamB.findFirst().get().toString());
 //       try(Stream<Conf> streamB = jdbcTemplate.queryForStream(
 //                "select * from sys.sys_config", new BeanPropertyRowMapper<>(Conf.class))){
 //           System.out.println(streamB.findFirst().get().toString());
